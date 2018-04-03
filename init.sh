@@ -5,4 +5,5 @@
 ln -s tmux.conf $HOME
 ln -s .bashrc $HOME
 ln -s .tmuxline.conf $HOME
+ln -s init.vim $HOME/.config/nvim/
 
