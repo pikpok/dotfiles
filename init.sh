@@ -2,8 +2,8 @@
 
 # Setup dotfiles
 
-ln -s tmux.conf $HOME
-ln -s .bashrc $HOME
-ln -s .tmuxline.conf $HOME
-ln -s init.vim $HOME/.config/nvim/
+ln -s `readlink -f .tmux.conf` $HOME
+ln -s `readlink -f .bashrc` $HOME
+ln -s `readlink -f .tmuxline.conf` $HOME
+ln -s `readlink -f init.vim` $HOME/.config/nvim/
 
