@@ -65,6 +65,8 @@ if dein#load_state('/home/pikpok/.local/share/dein')
   call dein#add('Xuyuanp/nerdtree-git-plugin')
   call dein#add('w0rp/ale')
   call dein#add('jdkanani/vim-material-theme')
+  call dein#add('scrooloose/nerdcommenter')
+  call dein#add('tpope/vim-surround')
   " call dein#add('edkolev/tmuxline.vim')
 
   " You can specify revision/branch/tag.
