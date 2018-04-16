@@ -8,6 +8,9 @@
 alias ls='ls --color=auto'
 [ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
 
+# save all history
+export PROMPT_COMMAND='history -a'
+
 # history search with arrows
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
