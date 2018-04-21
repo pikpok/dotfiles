@@ -26,5 +26,5 @@ if [[ -f $THEME ]]; then
     source $THEME
 fi
 
-export PATH=$PATH:$HOME/.bin
+export PATH=$PATH:$HOME/.local/bin
 

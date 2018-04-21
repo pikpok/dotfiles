@@ -1,0 +1,16 @@
+#/usr/bin/env bash
+
+# start user dbus session
+systemctl --user start dbus
+
+eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
+# set keyboard layout (pl)
+export XKB_DEFAULT_LAYOUT=pl
+
+# fix java apps
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+sway
+
