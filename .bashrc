@@ -19,6 +19,9 @@ bind '"\e[B": history-search-forward'
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 
+# dotfiles management
+alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
+
 # agnoster theme
 export THEME=$HOME/.bash/themes/agnoster-bash/agnoster.bash
 if [[ -f $THEME ]]; then
