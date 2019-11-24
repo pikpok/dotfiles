@@ -1,3 +1,0 @@
-swaygrab /tmp/sshot.png
-convert /tmp/sshot.png -crop "$(slop)" /tmp/sshot.png
-
