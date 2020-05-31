@@ -1,0 +1,13 @@
+#!/bin/bash
+
+rm -rf ~/.cache/yay/*/*.tar
+rm -rf ~/.cache/yay/*/*.pkg.tar
+rm -rf ~/.cache/yay/*/*.zip
+rm -rf ~/.cache/yay/*/*.tar.gz
+rm -rf ~/.cache/yay/*/*.tar.xz
+rm -rf ~/.cache/yay/*/*.deb
+rm -rf ~/.cache/yay/*/*.part
+rm -rf ~/.cache/yay/*/*.rpm
+rm -rf ~/.cache/yay/*/ngrok-*-linux-amd64
+rm -rf ~/.cache/yay/linux-clear/src
+

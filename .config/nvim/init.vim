@@ -5,14 +5,14 @@ endif
 
 " theme
 syntax enable
-set background=dark
+" set background=dark
 
 " tabs
 set tabstop=2
 set softtabstop=2
 set expandtab " tabs are spaces
 
-set number
+set relativenumber
 set cursorline
 
 " search
@@ -39,7 +39,6 @@ let g:ale_fixers = {
 \}
 
 let g:ale_fix_on_save = 1
-let g:airline#extensions#tmuxline#enabled = 0
 
 " Required:
 set runtimepath+=/home/pikpok/.local/share/dein/repos/github.com/Shougo/dein.vim
@@ -67,10 +66,7 @@ if dein#load_state('/home/pikpok/.local/share/dein')
   call dein#add('jdkanani/vim-material-theme')
   call dein#add('scrooloose/nerdcommenter')
   call dein#add('tpope/vim-surround')
-  " call dein#add('edkolev/tmuxline.vim')
-
-  " You can specify revision/branch/tag.
-  call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
+  call dein#add('unblevable/quick-scope')
 
   " Required:
   call dein#end()
@@ -90,3 +86,8 @@ endif
 
 "End dein Scripts-------------------------
 
+
+let g:javascript_plugin_flow = 1
+let g:jsx_ext_required = 0
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0

@@ -66,6 +66,7 @@ window#waybar.chromium {
 #network,
 #pulseaudio,
 #custom-media,
+#custom-bt-battery,
 #tray,
 #mode,
 #idle_inhibitor {
@@ -140,6 +141,11 @@ label:focus {
 #pulseaudio.muted {
     background-color: #90b1b1;
     color: #2a5c45;
+}
+
+#custom-bt-battery {
+    background-color: #ffffff;
+    color: #000000;
 }
 
 #custom-media {
