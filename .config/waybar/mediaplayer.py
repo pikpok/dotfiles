@@ -15,6 +15,7 @@ def write_output(text, player):
     logger.info('Writing output')
 
     output = {'text': text,
+              'tooltip': text,
               'class': 'custom-' + player.props.player_name,
               'alt': player.props.player_name}
 
@@ -123,4 +124,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

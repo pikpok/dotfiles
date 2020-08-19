@@ -1,18 +1,18 @@
 {
-    "layer": "top", // Waybar at top layer
+    "layer": "top",
     "position": "top",
     "modules-left": [
         "sway/workspaces",
         "sway/mode"
     ],
     "modules-right": [
+        "custom/dnd",
         "idle_inhibitor",
         "pulseaudio",
         "custom/media",
         "network",
         "cpu",
         "memory",
-        // "temperature",
         "backlight",
         "custom/bt-battery",
         "battery",
@@ -54,31 +54,19 @@
         "format": "{:%Y-%m-%d %H:%M}"
     },
     "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
+        "format": " {usage}%"
     },
     "memory": {
-        "format": "{}% "
-    },
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": [
-            "",
-            "",
-            ""
-        ]
+        "format": " {}%"
     },
     "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
+        "format": "{icon} {percent}%",
         "format-icons": [
             "",
             ""
-        ]
+        ],
+        "on-scroll-up": "light -A 5",
+        "on-scroll-down": "light -U 5"
     },
     "battery": {
         "states": {
@@ -89,7 +77,7 @@
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
         "format-not": " {capacity}%",
-        "format": "{icon} {time} ({capacity}%)",
+        "format": "{time} ({capacity}%) {icon}",
         "format-icons": [
             "",
             "",
@@ -99,12 +87,12 @@
         ]
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": "",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
         "on-click-right": "networkmanager_dmenu"
     },
     "pulseaudio": {
@@ -138,6 +126,9 @@
             "default": "🎜"
         },
         "escape": true,
+        "on-click-middle": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
     },
     "custom/bt-battery": {
@@ -148,5 +139,12 @@
         },
         "escape": true,
         "exec": "$HOME/.local/bin/bl_battery.py 2> /dev/null"
+    },
+    "custom/dnd": {
+        "exec": "$HOME/.local/bin/waybar-dnd",
+        "return-type": "json",
+        "signal": 2,
+        "interval": "once",
+        "on-click": "$HOME/.local/bin/waybar-dnd toggle"
     }
 }

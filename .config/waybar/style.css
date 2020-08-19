@@ -67,6 +67,7 @@ window#waybar.chromium {
 #pulseaudio,
 #custom-media,
 #custom-bt-battery,
+#custom-dnd,
 #tray,
 #mode,
 #idle_inhibitor {
@@ -75,6 +76,15 @@ window#waybar.chromium {
     color: #ffffff;
     border-radius: 10px;
     margin-top: 10px;
+}
+
+#custom-dnd {
+    background-color: #2d3436;
+}
+
+#custom-dnd.on {
+    background-color: #ffffff;
+    color: #000000;
 }
 
 #clock {

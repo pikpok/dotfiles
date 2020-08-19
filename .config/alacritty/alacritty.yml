@@ -9,6 +9,7 @@ window:
     x: 0
     y: 0
   decorations: 'none'
+  dynamic_title: false
 
 scrolling:
   history: 10000
@@ -60,7 +61,7 @@ colors:
     cyan:    '0x35434d'
     white:   '0xffffff'
 
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
 
@@ -76,8 +77,6 @@ mouse:
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
-
-dynamic_title: false
 
 cusror:
   style: Block
