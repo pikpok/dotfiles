@@ -15,22 +15,19 @@ exec_always /home/pikpok/.local/bin/import-gsettings \
 
 gaps inner 10
 
-# output HDMI-A-1 pos 1600 0
-output HDMI-A-1 pos 1920 0
 output eDP-1 pos 0 0 res 1920 1080
-# output eDP-1 scale 1.2
-output eDP-1 scale 1
-output * bg /home/pikpok/Obrazy/wallhaven/103929.png fill
+output "Goldstar Company Ltd LG HDR 4K 0x0000C647" scale 2
+output * bg wallpaper.jpg fill
 
 bindswitch lid:on output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
 
 default_border none
 
-input "1267:12304:ELAN0501:00_04F3:3010_Touchpad" {
+input * {
   tap enabled
+  xkb_layout pl
 }
-input * xkb_layout pl
 
 bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
 bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
