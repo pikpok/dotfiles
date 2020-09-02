@@ -115,11 +115,10 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
-# Note: workspaces can have any name you want, not just numbers.
-# We just use 1-10 as the default.
-#
-# Layout stuff:
-#
+
+bindsym $mod+Ctrl+Shift+right move workspace to output right
+bindsym $mod+Ctrl+Shift+left move workspace
+
 # You can "split" the current object of your focus with
 # $mod+b or $mod+v, for horizontal and vertical splits
 # respectively.
@@ -159,10 +158,6 @@ bindsym $mod+minus scratchpad show
 # Resizing containers:
 #
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
     bindsym Up resize shrink height 10px
@@ -179,8 +174,7 @@ bar {
 }
 
 # window custom configs
-for_window [class="Nightly"] inhibit_idle fullscreen
 for_window [app_id="firefox"] inhibit_idle fullscreen
-for_window [title="Nightly - Sharing Indicator"] floating enable
+for_window [title="Firefox - Sharing Indicator"] floating enable, kill
 
 include /etc/sway/config.d/*
