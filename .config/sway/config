@@ -16,7 +16,7 @@ exec_always /home/pikpok/.local/bin/import-gsettings \
 gaps inner 10
 
 output eDP-1 pos 0 0 res 1920 1080
-output "Goldstar Company Ltd LG HDR 4K 0x0000C647" scale 2
+output "Goldstar Company Ltd LG HDR 4K 0x00005FCE" pos 0 -1080 scale 2
 output * bg wallpaper.jpg fill
 
 bindswitch lid:on output eDP-1 disable
@@ -29,9 +29,11 @@ input * {
   xkb_layout pl
 }
 
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
-bindsym --locked XF86AudioMute exec pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
+bindsym --locked XF86Display output eDP-1 toggle
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym --locked XF86AudioPlay exec playerctl -p spotify play-pause
 bindsym --locked XF86AudioPause exec playerctl -p spotify pause
 bindsym --locked XF86AudioNext exec playerctl -p spotify next
