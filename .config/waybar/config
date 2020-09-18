@@ -73,6 +73,7 @@
             "warning": 30,
             "critical": 15
         },
+        "format-time": "{H}h {M}m",
         "format-alt": "{capacity}% {icon}",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
