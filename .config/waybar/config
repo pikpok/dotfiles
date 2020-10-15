@@ -106,7 +106,7 @@
         "format-icons": {
             "headphones": "",
             "handsfree": "",
-            "headset": "🎧",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
@@ -124,7 +124,8 @@
         "max-length": 40,
         "format-icons": {
             "spotify": "",
-            "default": "🎜"
+            "de.haeckerfelix.Shortwave": "",
+            "default": ""
         },
         "escape": true,
         "on-click-middle": "playerctl play-pause",
