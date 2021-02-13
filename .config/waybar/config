@@ -124,6 +124,7 @@
         "max-length": 40,
         "format-icons": {
             "spotify": "",
+            "ncspot": "",
             "de.haeckerfelix.Shortwave": "",
             "default": ""
         },
