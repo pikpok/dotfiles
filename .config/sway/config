@@ -2,11 +2,19 @@
 set $mod Mod4
 set $term alacritty
 set $menu wofi --show run
-set $lock swaylock --screenshots --effect-blur 5x0 --clock --indicator
+set $lock '/home/pikpok/.local/bin/lock.sh'
 
 exec mako
 exec nextcloud
-exec swayidle timeout 300 "$lock" timeout 302 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "$lock"
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id swayidle \
+    idlehint 300 \
+    timeout 300 '$lock grace 30' \
+#    timeout 302 'swaymsg "output * dpms off"' \
+    lock '$lock fade' \
+    unlock 'killall -9 swaylock' \
+    before-sleep '$lock' \
+    -w
 exec /usr/lib/kdeconnectd
 exec_always /home/pikpok/.local/bin/import-gsettings \
     gtk-theme:gtk-theme-name \
@@ -15,8 +23,8 @@ exec_always /home/pikpok/.local/bin/import-gsettings \
 
 gaps inner 10
 
-output eDP-1 pos 0 0 res 1920 1080
-output "Goldstar Company Ltd LG HDR 4K 0x00005FCE" pos 0 -1080 scale 2
+output eDP-1 pos 320 1440 res 1920 1080
+output "Lenovo Group Limited LEN P27h-10 0x00000101" pos 0 0
 output * bg wallpaper.jpg fill
 
 bindswitch lid:on output eDP-1 disable
@@ -34,10 +42,10 @@ bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ 
 bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym --locked XF86AudioPlay exec playerctl -p spotify play-pause
-bindsym --locked XF86AudioPause exec playerctl -p spotify pause
-bindsym --locked XF86AudioNext exec playerctl -p spotify next
-bindsym --locked XF86AudioPrev exec playerctl -p spotify previous
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioPause exec playerctl pause
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous
 bindsym --locked XF86MonBrightnessDown exec light -U 5
 bindsym --locked XF86MonBrightnessUp exec light -A 5
 
@@ -64,7 +72,8 @@ bindsym $mod+i exec rofimoji
 bindsym $mod+n exec networkmanager_dmenu
 bindsym $mod+Shift+b exec /home/pikpok/.local/bin/btmenu
 
-bindsym $mod+l exec $lock
+bindsym $mod+k exec makoctl menu wofi -d -p 'Choose Action: '
+bindsym $mod+l exec $lock fade
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -179,6 +188,7 @@ bar {
 
 # window custom configs
 for_window [app_id="firefox"] inhibit_idle fullscreen
-for_window [title="Firefox - Sharing Indicator"] floating enable, kill
+for_window [title="Firefox — Sharing Indicator"] floating enable, kill
 
 include /etc/sway/config.d/*
+
