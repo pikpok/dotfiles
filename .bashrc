@@ -33,7 +33,7 @@ if [[ -f $THEME ]]; then
     source $THEME
 fi
 
-export PATH=$HOME/.local/bin:$PATH:$HOME/.gem/ruby/2.6.0/bin:$HOME/go/bin:$HOME/.config/yarn/global/node_modules/.bin
+export PATH=$HOME/.local/bin:$PATH:$HOME/.gem/ruby/2.7.0/bin:$HOME/go/bin:$HOME/.config/yarn/global/node_modules/.bin
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
