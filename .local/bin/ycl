@@ -5,6 +5,7 @@ rm -rf ~/.cache/yay/*/*.pkg.tar
 rm -rf ~/.cache/yay/*/*.zip
 rm -rf ~/.cache/yay/*/*.tar.gz
 rm -rf ~/.cache/yay/*/*.tar.xz
+rm -rf ~/.cache/yay/*/*.tar.zst
 rm -rf ~/.cache/yay/*/*.deb
 rm -rf ~/.cache/yay/*/*.part
 rm -rf ~/.cache/yay/*/*.rpm
