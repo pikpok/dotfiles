@@ -23,8 +23,8 @@ exec_always /home/pikpok/.local/bin/import-gsettings \
 
 gaps inner 10
 
-output eDP-1 pos 320 1440 res 1920 1080
-output "Lenovo Group Limited LEN P27h-10 0x00000101" pos 0 0
+output eDP-1 pos 0 1440 res 1920 1080
+output "Lenovo Group Limited LEN P27h-10 0x00000101" pos 1920 1080
 output * bg wallpaper.jpg fill
 
 bindswitch lid:on output eDP-1 disable
