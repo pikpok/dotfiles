@@ -27,8 +27,8 @@ output eDP-1 pos 0 1440 res 1920 1080
 output "Lenovo Group Limited LEN P27h-10 0x00000101" pos 1920 1080
 output * bg wallpaper.jpg fill
 
-bindswitch lid:on output eDP-1 disable
-bindswitch lid:off output eDP-1 enable
+bindswitch lid:on output eDP-1 disable, exec /home/pikpok/.local/bin/lid.sh
+bindswitch lid:off output eDP-1 enable, exec /home/pikpok/.local/bin/lid.sh
 
 default_border none
 
@@ -68,7 +68,7 @@ bindsym $mod+Shift+q kill
 # start your launcher
 bindsym $mod+d exec $menu
 bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort
-bindsym $mod+i exec rofimoji
+bindsym $mod+i exec rofimoji --selector wofi
 bindsym $mod+n exec networkmanager_dmenu
 bindsym $mod+Shift+b exec /home/pikpok/.local/bin/btmenu
 
