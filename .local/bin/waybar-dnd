@@ -12,10 +12,10 @@ show() {
 
 toggle() {
     if [ -e "$marker" ]; then
-        makoctl set invisible=false
+        makoctl set-mode default
         rm -f "$marker"
     else
-        makoctl set invisible=true
+        makoctl set-mode dnd
         touch "$marker"
     fi
     pkill -RTMIN+2 -x waybar

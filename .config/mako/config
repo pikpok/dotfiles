@@ -1,2 +1,5 @@
 background-color=#273238
 border-color=#273238
+
+[mode=dnd]
+invisible=1
