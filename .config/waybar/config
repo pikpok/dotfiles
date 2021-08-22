@@ -11,17 +11,17 @@
         "pulseaudio",
         "custom/media",
         "network",
+        "network#ethernet",
+        "network#vpn",
         "cpu",
         "memory",
         "backlight",
-        "custom/bt-battery",
         "battery",
         "clock",
         "tray"
     ],
     // Modules configuration
     "sway/workspaces": {
-        "disable-scroll": true,
         "all-outputs": false,
         "format": "{icon}",
         "format-icons": {
@@ -51,13 +51,16 @@
     },
     "clock": {
         "locale": "C",
-        "format": "{:%Y-%m-%d %H:%M}"
+        "format": "{:%Y-%m-%d %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "on-click": "gsimplecal"
     },
     "cpu": {
         "format": " {usage}%"
     },
     "memory": {
-        "format": " {}%"
+        "format": " {}%",
+        "tooltip": "{used:0.1f}G/{total:0.1f}G "
     },
     "backlight": {
         "format": "{icon} {percent}%",
@@ -65,8 +68,6 @@
             "",
             ""
         ],
-        "on-scroll-up": "light -A 5",
-        "on-scroll-down": "light -U 5"
     },
     "battery": {
         "states": {
@@ -88,16 +89,32 @@
         ]
     },
     "network": {
+        "interface": "wlp*",
         "format-wifi": "",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected",
+        "format-disconnected": "",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "tooltip-format-wifi": "{essid} ({signalStrength}%)",
-        "on-click-right": "networkmanager_dmenu"
+        "on-click": "networkmanager_dmenu",
+        "on-click-middle": "nm-connection-editor"
+    },
+    "network#ethernet": {
+        "interface": "enp*",
+        "format-ethernet": "",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "networkmanager_dmenu",
+        "on-click-middle": "nm-connection-editor"
+    },
+    "network#vpn": {
+        "interface": "tun*",
+        "format-ethernet": "",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format-ethernet": "VPN {ifname}: {ipaddr}/{cidr}",
+        "on-click": "networkmanager_dmenu",
+        "on-click-middle": "nm-connection-editor"
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-muted": " {format_source}",
@@ -130,18 +147,7 @@
         },
         "escape": true,
         "on-click-middle": "playerctl play-pause",
-        "on-scroll-up": "playerctl next",
-        "on-scroll-down": "playerctl previous",
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
-    },
-    "custom/bt-battery": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "format-icons": {
-            "default": " "
-        },
-        "escape": true,
-        "exec": "$HOME/.local/bin/bl_battery.py 2> /dev/null"
     },
     "custom/dnd": {
         "exec": "$HOME/.local/bin/waybar-dnd",
